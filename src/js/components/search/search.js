@@ -7,9 +7,12 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      city: ""
+    };
 
     this.handleCity = this.handleCity.bind(this);
-    //this.handleApiCall = this.handleApiCall.bind(this);
+    this.handleApiCall = this.handleApiCall.bind(this);
     this.handleButtonLine = this.handleButtonLine.bind(this);
   }
 
@@ -18,14 +21,24 @@ class Search extends React.Component {
     dispatch(updateInput(event.target.value));
   }
 
-  handleButtonLine(city) {
+  handleButtonLine(cityName) {
     console.log('axios function hit');
     const { dispatch } = this.props;
 
-    dispatch(handleApiCall(city));
+    dispatch(handleApiCall(cityName));
   }
 
+  handleApiCall() {
+    console.log('axios call hit');
+    const { dispatch, city } = this.props;
+    
 
+    const ApiCall = {
+      type: "NEW_CALL",
+      payload: axios.get(`/api/${city}`)};
+
+    dispatch(ApiCall);
+  }
 
   render() {
     const { city } = this.props;

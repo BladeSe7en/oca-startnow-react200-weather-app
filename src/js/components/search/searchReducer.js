@@ -20,6 +20,7 @@ export default function currentSearch(state = defaultState, action) {
 
    switch(type) {
        case types.NEW_CALL: {
+           console.log(payload);
            return {
                ...state,
                 temp: `${payload.data.main.temp} F`,
