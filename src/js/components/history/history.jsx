@@ -17,6 +17,7 @@ class History extends React.Component {
           <div className="hist right-flex">
             <p className="content date-time">{value.date}</p>
             <p className="content date-time">{value.time}</p>
+            
           </div>
         </div>
       );
