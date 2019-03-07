@@ -1,4 +1,4 @@
-import { types } from './searchAction';
+import { types } from './LoginActions';
 
 const defaultState = {
     city: '',
